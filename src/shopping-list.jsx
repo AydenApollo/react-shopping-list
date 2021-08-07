@@ -1,18 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import { Divider } from '@material-ui/core';
+
 class ShoppingList extends (React.Component) {
     render() {
         return (
-            <div>
-                <ul>
-               {this.props.contacts.map((item, index) => {
-                return <li key={index}>
-                   <input type='checkbox'> {item.name}</input>
-                </li>;
+            <Card style={{maxWidth='500px', margin='30px auto'}}>
+                <CardContent>
+                <List>
+               {this.props.shopping_list.map((item, index) => {
+                return <ListItem key={index} dense divider>
+                   <input type='checkbox'> {item.in_cart}</input>
+                </ListItem>;
                 })}
-                </ul>
-            </div>
+                </List>
+                </CardContent>
+                <CardActions>
+                    <Button>Add Item</Button>
+                </CardActions>
+            </Card>
         )
     }
 }
