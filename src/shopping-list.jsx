@@ -1,14 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class ShoppingList extends (React.Component) {
     render() {
         return (
             <div>
-                <ShoppingList/>
+                <ul>
+               {this.props.contacts.map((item, index) => {
+                return <li key={index}>
+                   <input type='checkbox'> {item.name}</input>
+                </li>;
+                })}
+                </ul>
             </div>
         )
     }
 }
 
-
-export default ShoppingList
+function mapStateToProps(state) {
+    return {
+        shopping_list: state.shopping_list
+    }
+}
+var ConnectedShoppingList = connect(mapStateToProps)(ShoppingList)
+export default ConnectedShoppingList
