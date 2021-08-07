@@ -8,9 +8,14 @@ import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import { Divider } from '@material-ui/core';
+import { Divider, FormControlLabel } from '@material-ui/core';
+
+import {toggleinCart} from './actions.js';
 
 class ShoppingList extends (React.Component) {
+    handleChange(event, index) {
+        this.props.updateCart(index, event.target.value)
+    }
     render() {
         return (
             <Card style={{maxWidth='500px', margin='30px auto'}}>
@@ -36,5 +41,13 @@ function mapStateToProps(state) {
         shopping_list: state.shopping_list
     }
 }
-var ConnectedShoppingList = connect(mapStateToProps)(ShoppingList)
+
+function mapDispatchToProps(dispatch) {
+    return{
+        toggleinCart: function(data) {
+            dispatch(inCart(data))
+        }
+    }
+}
+var ConnectedShoppingList = connect(mapStateToProps, mapDispatchToProps)(ShoppingList)
 export default ConnectedShoppingList
