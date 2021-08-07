@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -29,7 +30,7 @@ class ShoppingList extends (React.Component) {
                 </List>
                 </CardContent>
                 <CardActions>
-                    <Button>Add Item</Button>
+                    <Button component={Link} to='/add'>Add Item</Button>
                 </CardActions>
             </Card>
         )

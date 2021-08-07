@@ -13,9 +13,11 @@ function slist_reducer(state, action) {
       if (action.type === 'TOGGLE_IN_CART') {
         let new_state=deepcopy(state);
         new_state.shopping_list[action.data.index].in_cart= !new_state.shopping_list[action.data.index].in_cart;
-        return new_state;
       }
-      return state;
+      else if (action.type === 'TOGGLE_IN_CART') {
+        new_state.shopping_list.push({name: action.data.name, in_cart: false})
+      }
+      return new_state;
 }
 
 

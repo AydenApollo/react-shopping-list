@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import ShoppingList from './shopping-list.jsx'
 import AddItem from './add-item.jsx';
 import store from './store.js';
+import ShoppingCount from './shopping-count.js';
 
 const theme = createTheme({
   palette: {
@@ -45,7 +46,7 @@ function App() {
     <div className="App">
     <AppBar position="relative">
       <Toolbar>
-        <h1 style={{textDecoration: 'none', color='white'}}><Link to="/">Shopping List</Link></h1>
+        <h1><Link to="/" style={{textDecoration: 'none', color='white'}}>Shopping List</Link></h1>
         </Toolbar>
         </AppBar>
     <Switch>
